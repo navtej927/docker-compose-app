@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       {JSON.stringify(movies)}
       <div>
-        <button onClick={fetchVersion}>Fetch version of Backend</button>
+        <button onClick={fetchVersion}>Fetch version</button>
         <div>{version}</div>
       </div>
     </div>

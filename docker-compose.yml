@@ -4,9 +4,13 @@ services:
     build: ./backend
     ports:
       - 9001:9001
-    command: npm run start
+    volumes:
+      - ./backend/src:/usr/src/app/src
+    command: npm run dev
   frontend:
     build: ./frontend
     ports:
       - 3001:3000
-    command: npm run start    
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+    command: npm run start
