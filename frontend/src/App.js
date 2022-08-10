@@ -7,7 +7,7 @@ function App() {
   const [placeholder, setPlaceholder] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:9001/api/movies`)
+    fetch(`http://localhost:9001/api/movie`)
       .then((data) => {
         return data.json();
       })
@@ -36,7 +36,9 @@ function App() {
 
   return (
     <div className="App">
-      {JSON.stringify(movies)}
+      {movies.map((_movie)=>{
+        return <div>{_movie.title}</div>
+      })}
       <div>
         <button onClick={fetchVersion}>Fetch version and placeholder</button>
         <div>{version}</div>

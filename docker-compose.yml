@@ -7,6 +7,9 @@ services:
     volumes:
       - ./backend/src:/usr/src/app/src
     command: npm run dev
+    depends_on:
+      - mongo
+
   backend2:
     build: ./backend2
     ports:
@@ -14,6 +17,13 @@ services:
     volumes:
       - ./backend2/src:/usr/src/app/src
     command: npm run dev
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=nav
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+
   frontend:
     build: ./frontend
     ports:

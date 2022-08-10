@@ -20,3 +20,8 @@ docker-compose kill
 docker-compose rm
 // stop all contaners and remove images, volumes
 docker-compose down
+
+
+----
+Remove all images
+docker rmi $(docker images -a -q)
