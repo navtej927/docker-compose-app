@@ -1,5 +1,13 @@
 version: '3.8'
 services:
+  frontend:
+    build: ./frontend
+    # ports:
+    #   - 9000:9000
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+    command: npm run start
+  
   movie-api:
     build: ./movie-api
     ports:
@@ -18,16 +26,15 @@ services:
       - ./placeholder-api/src:/usr/src/app/src
     command: npm run dev
 
+  nginx:
+    image: nginx
+    ports:
+      - 9000:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
   mongo:
     image: mongo
     environment:
       - MONGO_INITDB_ROOT_USERNAME=nav
       - MONGO_INITDB_ROOT_PASSWORD=1234
-
-  frontend:
-    build: ./frontend
-    ports:
-      - 9000:9000
-    volumes:
-      - ./frontend/src:/usr/src/app/src
-    command: npm run start
