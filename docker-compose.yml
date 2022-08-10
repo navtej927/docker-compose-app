@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-  backend:
-    build: ./backend
+  movie-api:
+    build: ./movie-api
     ports:
       - 9001:9001
     volumes:
-      - ./backend/src:/usr/src/app/src
+      - ./movie-api/src:/usr/src/app/src
     command: npm run dev
     depends_on:
       - mongo
 
-  backend2:
-    build: ./backend2
+  placeholder-api:
+    build: ./placeholder-api
     ports:
       - 9002:9002
     volumes:
-      - ./backend2/src:/usr/src/app/src
+      - ./placeholder-api/src:/usr/src/app/src
     command: npm run dev
 
   mongo:
@@ -27,7 +27,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - 3001:3000
+      - 9000:9000
     volumes:
       - ./frontend/src:/usr/src/app/src
     command: npm run start

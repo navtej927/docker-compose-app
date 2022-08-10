@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/placeholder", (req, res) => {
   axios
-    .get("http://backend2:9002/api/placeholder")
+    .get("http://placeholder-api:9002/api/placeholder")
     .then((_res) => {
       res.json(_res.data);
     })
