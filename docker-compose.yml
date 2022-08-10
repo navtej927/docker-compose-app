@@ -10,8 +10,8 @@ services:
   
   movie-api:
     build: ./movie-api
-    ports:
-      - 9001:9001
+    # ports:
+    #   - 9001:9001
     volumes:
       - ./movie-api/src:/usr/src/app/src
     command: npm run dev
@@ -20,8 +20,8 @@ services:
 
   placeholder-api:
     build: ./placeholder-api
-    ports:
-      - 9002:9002
+    # ports:
+    #   - 9002:9002
     volumes:
       - ./placeholder-api/src:/usr/src/app/src
     command: npm run dev

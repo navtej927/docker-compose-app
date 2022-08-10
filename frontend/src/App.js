@@ -7,7 +7,7 @@ function App() {
   const [placeholder, setPlaceholder] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:9001/api/movie`)
+    fetch(`http://localhost:9000/api/movie`)
       .then((data) => {
         return data.json();
       })
@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   const fetchVersion = () => {
-    fetch(`http://localhost:9001/`)
+    fetch(`http://localhost:9000/api`)
       .then((data) => {
         return data.json();
       })
@@ -25,7 +25,7 @@ function App() {
         setVersion(res?.version);
       });
 
-    fetch(`http://localhost:9001/api/placeholder`)
+    fetch(`http://localhost:9000/api/placeholder`)
       .then((data) => {
         return data.json();
       })
